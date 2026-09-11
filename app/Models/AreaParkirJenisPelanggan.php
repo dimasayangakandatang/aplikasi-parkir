@@ -2,10 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\JenisPelanggan;
+use App\Models\Tarif;
+use App\Models\Transaksi;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -16,4 +20,19 @@ class AreaParkirJenisPelanggan extends Model
      use HasUuids, SoftDeletes;
 
      protected $table = 'area_parkir_jenis_pelanggan';
+
+     public function tarifs(): BelongsTo
+     {
+         return $this->belongsTo(Tarif::class);
+     }
+
+     public function jenisPelanggans(): BelongsToMany
+     {
+         return $this->belongsToMany(JenisPelanggan::class, 'area_parkir_jenis_pelanggan');
+     }
+
+     public function transaksis(): HasMany
+     {
+         return $this->hasMany(Transaksi::class);
+     }
 }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tarifs', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->enum('jenis_kendaraan', ['mobil', 'motor']);
+            $table->enum('jenis_kendaraan', ['mobil', 'motor', 'truk']);
             $table->unsignedInteger('tarif_jam_pertama')->default(0);
             $table->unsignedInteger('tarif_jam_berikutnya')->default(0);
             $table->timestamps();

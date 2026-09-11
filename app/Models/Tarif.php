@@ -14,6 +14,8 @@ class Tarif extends Model
 {
     use HasUuids, SoftDeletes;
 
+    protected $table = 'tarifs';
+
     public function areaParkir(): HasMany
     {
         return $this->hasMany(AreaParkir::class);

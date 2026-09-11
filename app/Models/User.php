@@ -21,6 +21,8 @@ class User extends Authenticatable
     /** @use HasFactory<UserFactory> */
     use HasFactory, HasUuids, Notifiable, SoftDeletes;
 
+    protected $table = 'users';
+
     public function transaksi(): HasMany
     {
         return $this->hasMany(Transaksi::class);

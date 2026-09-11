@@ -16,17 +16,19 @@ class AreaParkir extends Model
 
     use HasUuids, SoftDeletes;
 
+    protected $table = 'area_parkirs';
+
     public function tarif(): BelongsTo
     {
         return $this->belongsTo(Tarif::class);
     }
 
-    public function jenisPelanggan(): BelongsToMany
+    public function jenisPelanggans(): BelongsToMany
     {
         return $this->belongsToMany(JenisPelanggan::class, 'area_parkir_jenis_pelanggan');
     }
 
-    public function transaksi(): HasMany
+    public function transaksis(): HasMany
     {
         return $this->hasMany(Transaksi::class);
     }

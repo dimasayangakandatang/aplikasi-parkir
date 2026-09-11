@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}" />
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
@@ -23,7 +25,7 @@
         <!-- Page Heading -->
         <div class="lg:pl-64">
             @isset($header)
-                <header class="bg-blue-600 shadow-sm ring-1 ring-slate-200/80">
+                <header class="bg-cyan-600 shadow-sm ring-1 ring-slate-200/80">
                     <div class="mx-auto flex items-center gap-3 px-4 py-4 sm:px-6 lg:px-8">
                         <button @click="sidebarOpen = !sidebarOpen" type="button"
                             class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 lg:hidden"

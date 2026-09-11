@@ -25,7 +25,7 @@ class KelolaAreaController extends Controller
      */
     public function index(): View
     {
-        $areas = AreaParkir::with(['tarif', 'jenisPelanggan'])->orderBy('created_at', 'desc')->get();
+        $areas = AreaParkir::with(['tarif', 'jenisPelanggans'])->orderBy('created_at', 'desc')->get();
         $tarifs = Tarif::orderBy('jenis_kendaraan')->get();
         $jenisPelanggans = JenisPelanggan::orderBy('nama')->get();
 
@@ -57,7 +57,7 @@ class KelolaAreaController extends Controller
         ]);
 
         $area = AreaParkir::create($validated);
-        $area->jenisPelanggans()->sync($validated['jenis_pelanggan_ids'] ?? []);
+        $area->jenisPelanggan()->sync($validated['jenis_pelanggan_ids'] ?? []);
 
         Log::create([
             'user_id' => Auth::id(),

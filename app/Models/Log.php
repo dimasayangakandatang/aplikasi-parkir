@@ -13,6 +13,8 @@ class Log extends Model
 {
     use HasUuids;
 
+    protected $table = 'logs';
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

@@ -16,6 +16,8 @@ class Kendaraan extends Model
 {
     use HasUuids, SoftDeletes;
 
+    protected $table = 'kendaraans';
+
     public function jenisPelanggan(): BelongsTo
     {
         return $this->belongsTo(JenisPelanggan::class);

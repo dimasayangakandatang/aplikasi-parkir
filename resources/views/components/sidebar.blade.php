@@ -47,7 +47,8 @@
                     {{ __('Admin') }}
                 </p>
                 <div class="space-y-1">
-                    <a href="#" @click="if (window.innerWidth < 1024) { sidebarOpen = false; }"
+                    <a href="{{ route('logs.admin.index') }}"
+                        @click="if (window.innerWidth < 1024) { sidebarOpen = false; }"
                         class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900">
                         <svg class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
@@ -68,7 +69,8 @@
                         {{ __('Kelola User') }}
                     </a>
 
-                    <a href="#" @click="if (window.innerWidth < 1024) { sidebarOpen = false; }"
+                    <a href="{{ route('management.tarif.index') }}"
+                        @click="if (window.innerWidth < 1024) { sidebarOpen = false; }"
                         class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900">
                         <svg class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
@@ -88,7 +90,8 @@
                         {{ __('Area') }}
                     </a>
 
-                    <a href="#" @click="if (window.innerWidth < 1024) { sidebarOpen = false; }"
+                    <a href="{{ route('management.vehicle.index') }}"
+                        @click="if (window.innerWidth < 1024) { sidebarOpen = false; }"
                         class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900">
                         <svg class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
@@ -98,7 +101,8 @@
                         {{ __('Kendaraan') }}
                     </a>
 
-                    <a href="#" @click="if (window.innerWidth < 1024) { sidebarOpen = false; }"
+                    <a href="{{ route('management.setting.index') }}"
+                        @click="if (window.innerWidth < 1024) { sidebarOpen = false; }"
                         class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900">
                         <svg class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
@@ -119,7 +123,8 @@
                     {{ __('User') }}
                 </p>
                 <div class="space-y-1">
-                    <a href="#" @click="if (window.innerWidth < 1024) { sidebarOpen = false; }"
+                    <a href="{{ route('parkir.masuk') }}"
+                        @click="if (window.innerWidth < 1024) { sidebarOpen = false; }"
                         class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900">
                         <svg class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
@@ -128,7 +133,8 @@
                         {{ __('Kendaraan Masuk') }}
                     </a>
 
-                    <a href="#" @click="if (window.innerWidth < 1024) { sidebarOpen = false; }"
+                    <a href="{{ route('parkir.keluar') }}"
+                        @click="if (window.innerWidth < 1024) { sidebarOpen = false; }"
                         class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900">
                         <svg class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
@@ -137,7 +143,8 @@
                         {{ __('Kendaraan Keluar') }}
                     </a>
 
-                    <a href="#" @click="if (window.innerWidth < 1024) { sidebarOpen = false; }"
+                    <a href="{{ route('parkir.terparkir') }}"
+                        @click="if (window.innerWidth < 1024) { sidebarOpen = false; }"
                         class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900">
                         <svg class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
@@ -147,7 +154,8 @@
                         {{ __('Data Kendaraan Terparkir') }}
                     </a>
 
-                    <a href="#" @click="if (window.innerWidth < 1024) { sidebarOpen = false; }"
+                    <a href="{{ route('logs.index') }}"
+                        @click="if (window.innerWidth < 1024) { sidebarOpen = false; }"
                         class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900">
                         <svg class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
@@ -166,7 +174,8 @@
                     {{ __('Owner') }}
                 </p>
                 <div class="space-y-1">
-                    <a href="#" @click="if (window.innerWidth < 1024) { sidebarOpen = false; }"
+                    <a href="{{ route('report.transaksi.index') }}"
+                        @click="if (window.innerWidth < 1024) { sidebarOpen = false; }"
                         class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900">
                         <svg class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
@@ -205,7 +214,7 @@
             x-transition:leave-end="opacity-0"
             class="mt-1 overflow-hidden rounded-lg border border-slate-200 bg-white py-1 shadow-lg"
             style="display:none;">
-            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">
+            <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">
                 {{ __('Profile') }}
             </a>
 

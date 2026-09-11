@@ -15,6 +15,8 @@ class Transaksi extends Model
 {
     use HasUuids;
 
+    protected $table = 'transaksis';
+
     public function kendaraan(): BelongsTo
     {
         return $this->belongsTo(Kendaraan::class);

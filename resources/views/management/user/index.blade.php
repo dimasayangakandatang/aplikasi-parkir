@@ -6,7 +6,7 @@
 
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight text-slate-800">
+        <h2 class="text-xl font-semibold leading-tight text-white">
             {{ __('Kelola User') }}
         </h2>
     </x-slot>
@@ -83,7 +83,7 @@
                     <form method="GET" action="{{ route('user-management.index') }}" class="flex w-full gap-2">
                         <input type="search" name="search" value="{{ $search }}"
                             placeholder="Cari nama atau email"
-                            class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100">
+                            class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100">
                         <button type="submit"
                             class="rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-slate-100">
                             Cari
@@ -100,7 +100,7 @@
                 <div class="flex items-center justify-between gap-3">
                     <p class="text-sm text-slate-500">Total user: {{ $users->count() }}</p>
                     <button type="button" @click="openCreate()"
-                        class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-500">
+                        class="inline-flex items-center gap-2 rounded-lg bg-cyan-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-cyan-500">
                         <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                             stroke-width="1.8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8h-16" />
@@ -197,13 +197,13 @@
                         <div class="md:col-span-2">
                             <label for="name" class="mb-1 block text-sm font-medium text-slate-700">Nama</label>
                             <input id="name" x-model="form.name" type="text" name="name" required
-                                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100">
+                                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100">
                         </div>
 
                         <div class="md:col-span-2">
                             <label for="email" class="mb-1 block text-sm font-medium text-slate-700">Email</label>
                             <input id="email" x-model="form.email" type="email" name="email" required
-                                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100">
+                                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100">
                         </div>
 
                         <div>
@@ -212,7 +212,7 @@
                             </label>
                             <input id="password" x-model="form.password" type="password" name="password"
                                 :required="modalMode === 'create'"
-                                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100">
+                                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100">
                         </div>
 
                         <div>
@@ -221,14 +221,14 @@
                             </label>
                             <input id="password_confirmation" x-model="form.password_confirmation" type="password"
                                 name="password_confirmation"
-                                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100">
+                                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100">
                         </div>
 
                         <div class="md:col-span-2">
                             <label for="role" class="mb-1 block text-sm font-medium text-slate-700">Role</label>
                             <select id="role" x-model="form.role" name="role"
                                 :disabled="form.role === 'super_admin'"
-                                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 disabled:cursor-not-allowed disabled:bg-slate-100">
+                                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100 disabled:cursor-not-allowed disabled:bg-slate-100">
                                 <option value="user">User</option>
                                 <option value="admin">Admin</option>
                                 <option value="owner">Owner</option>
@@ -245,7 +245,7 @@
                             Batal
                         </button>
                         <button type="button" @click="submit()"
-                            class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">
+                            class="rounded-lg bg-cyan-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500">
                             Simpan
                         </button>
                     </div>

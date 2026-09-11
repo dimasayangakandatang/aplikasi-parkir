@@ -6,7 +6,7 @@
 
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight text-slate-800">
+        <h2 class="text-xl font-semibold leading-tight text-white">
             {{ __('Kelola Area') }}
         </h2>
     </x-slot>
@@ -50,7 +50,7 @@
                     <p class="text-sm text-slate-500">Total area: {{ $areas->count() }}</p>
                 </div>
                 <button type="button" @click="openCreate()"
-                    class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-500">
+                    class="rounded-lg bg-cyan-600 px-4 py-2 text-sm font-semibold text-white hover:bg-cyan-500">
                     Tambah Area
                 </button>
             </div>
@@ -78,8 +78,8 @@
                                         {{ $area->tarif ? ucfirst($area->tarif->jenis_kendaraan) . ' / Rp ' . number_format($area->tarif->tarif_jam_pertama, 0, ',', '.') . ' / Rp ' . number_format($area->tarif->tarif_jam_berikutnya, 0, ',', '.') : '-' }}
                                     </td>
                                     <td class="px-4 py-3">
-                                        @if ($area->jenisPelanggan->isNotEmpty())
-                                            {{ $area->jenisPelanggan->pluck('nama')->implode(', ') }}
+                                        @if ($area->jenisPelanggans->isNotEmpty())
+                                            {{ $area->jenisPelanggans->pluck('nama')->implode(', ') }}
                                         @else
                                             <span class="text-slate-400">-</span>
                                         @endif
@@ -87,7 +87,7 @@
                                     <td class="px-4 py-3 text-right">
                                         <div class="flex justify-end gap-2">
                                             <button type="button"
-                                                @click="openEdit({ id: '{{ $area->id }}', nama: '{{ addslashes($area->nama) }}', lokasi: '{{ addslashes($area->lokasi) }}', kapasitas: '{{ $area->kapasitas }}', tarif_id: '{{ $area->tarif_id ?? '' }}', jenis_pelanggan_ids: @js($area->jenisPelanggan->pluck('id')->all()) })"
+                                                @click="openEdit({ id: '{{ $area->id }}', nama: '{{ addslashes($area->nama) }}', lokasi: '{{ addslashes($area->lokasi) }}', kapasitas: '{{ $area->kapasitas }}', tarif_id: '{{ $area->tarif_id ?? '' }}', jenis_pelanggan_ids: @js($area->jenisPelanggans->pluck('id')->all()) })"
                                                 class="rounded-lg border border-slate-200 bg-white px-3 py-1.5 font-medium text-slate-700 hover:bg-slate-100">
                                                 Edit
                                             </button>
@@ -147,25 +147,25 @@
                         <div class="md:col-span-2">
                             <label class="mb-1 block text-sm font-medium text-slate-700">Nama Area</label>
                             <input x-model="form.nama" type="text" name="nama" required
-                                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100">
+                                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100">
                         </div>
 
                         <div class="md:col-span-2">
                             <label class="mb-1 block text-sm font-medium text-slate-700">Lokasi</label>
                             <input x-model="form.lokasi" type="text" name="lokasi" required
-                                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100">
+                                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100">
                         </div>
 
                         <div>
                             <label class="mb-1 block text-sm font-medium text-slate-700">Kapasitas</label>
                             <input x-model="form.kapasitas" type="number" min="1" name="kapasitas" required
-                                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100">
+                                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100">
                         </div>
 
                         <div>
                             <label class="mb-1 block text-sm font-medium text-slate-700">Tarif</label>
                             <select x-model="form.tarif_id" name="tarif_id"
-                                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100">
+                                class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100">
                                 <option value="">-- Tidak dipilih --</option>
                                 @foreach ($tarifs as $tarif)
                                     <option value="{{ $tarif->id }}">{{ ucfirst($tarif->jenis_kendaraan) }} - Rp
@@ -194,7 +194,7 @@
                                                     form.jenis_pelanggan_ids = form.jenis_pelanggan_ids.filter((item) => item !== id);
                                                 }
                                             "
-                                            class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500">
+                                            class="h-4 w-4 rounded border-slate-300 text-cyan-600 focus:ring-cyan-500">
                                         <span>{{ $jenis->nama }}</span>
                                     </label>
                                 @endforeach
@@ -206,7 +206,7 @@
                         <button type="button" @click="modalOpen = false"
                             class="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100">Batal</button>
                         <button type="submit"
-                            class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-500">Simpan</button>
+                            class="rounded-lg bg-cyan-600 px-4 py-2 text-sm font-semibold text-white hover:bg-cyan-500">Simpan</button>
                     </div>
                 </form>
             </div>
